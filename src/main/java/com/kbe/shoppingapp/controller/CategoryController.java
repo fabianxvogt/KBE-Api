@@ -48,7 +48,7 @@ class CategoryController {
     return this.categoryService.create(category);
   }
 
-  @PutMapping("/category/{id}")
+  @PatchMapping("/category/{id}")
   public Category updateCategory(@PathVariable("id") long id, @RequestBody Category category) {
     return this.categoryService.update(category, id);
   }
