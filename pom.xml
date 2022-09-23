@@ -11,7 +11,7 @@
 	<groupId>com.kbe</groupId>
 	<artifactId>shoppingapp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>kbe-shoppingapp</name>
+	<name>shoppingapp</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>18</java.version>
@@ -24,10 +24,27 @@
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<!--dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency-->
+
+		<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
+        </dependency>
 	</dependencies>
+
 
 	<build>
 		<plugins>
@@ -39,3 +56,4 @@
 	</build>
 
 </project>
+
