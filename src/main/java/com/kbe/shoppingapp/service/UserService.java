@@ -17,11 +17,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService implements IUserService {
 
-	@Autowired
-	private final UserRepository userRepository;
+	//@Autowired
+	//private final UserRepository userRepository;
 
 	public UserService(UserRepository userRepository) {
-		this.userRepository = userRepository;
+		//this.userRepository = userRepository;
 		//this.userRepository.deleteAll();
 	}
 
