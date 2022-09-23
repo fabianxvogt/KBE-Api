@@ -22,7 +22,7 @@ public class UserService implements IUserService {
 
 	public UserService(UserRepository userRepository) {
 		this.userRepository = userRepository;
-		//this.userRepository.deleteAll();
+		this.userRepository.deleteAll();
 	}
 
 	@Override
