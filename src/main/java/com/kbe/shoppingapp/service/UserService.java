@@ -32,6 +32,7 @@ public class UserService implements IUserService {
 		// 	throw new EmailAlreadyExistsException();
 		// }
 		// return this.userRepository.save(user);
+		return null;
 	}
 
 	@Override
@@ -44,22 +45,25 @@ public class UserService implements IUserService {
 		// 	return user;
 		// }
 		// throw new Exception("Login error! Wrong email or password");
+		return null;
 	}
 
 	@Override
 	public List<User> readAll() {
 		// return this.userRepository.findAll();
+		return null;
 	}
 
 	@Override
 	public User readByEmail(String email) {
 		// return this.userRepository.findByEmail(email);
+		return null;
 	}
 
 	@Override
 	public User update(User user) {
 		// TODO Auto-generated method stub
-		// return null;
+		return null;
 	}
 
 	@Override
