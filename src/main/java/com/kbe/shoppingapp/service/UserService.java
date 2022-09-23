@@ -27,31 +27,31 @@ public class UserService implements IUserService {
 
 	@Override
 	public User singUp(User user) throws EmailAlreadyExistsException {
-		// User exists = this.userRepository.findByEmail(user.email);
-		// if (exists != null) {
-		// 	throw new EmailAlreadyExistsException();
-		// }
-		// return this.userRepository.save(user);
-		return null;
+		User exists = this.userRepository.findByEmail(user.email);
+		if (exists != null) {
+			throw new EmailAlreadyExistsException();
+		}
+		return this.userRepository.save(user);
+		//return null;
 	}
 
 	@Override
 	public User singIn(String email, String password) throws Exception {
-		// User user = this.userRepository.findByEmail(email);
-		// if (user == null) {
-		// 	throw new Exception("Email not found!");
-		// }
-		// if (user.password.equals(password)) {
-		// 	return user;
-		// }
-		// throw new Exception("Login error! Wrong email or password");
-		return null;
+		User user = this.userRepository.findByEmail(email);
+		if (user == null) {
+			throw new Exception("Email not found!");
+		}
+		if (user.password.equals(password)) {
+			return user;
+		}
+		throw new Exception("Login error! Wrong email or password");
+		//return null;
 	}
 
 	@Override
 	public List<User> readAll() {
-		//return this.userRepository.findAll();
-		return null;
+		return this.userRepository.findAll();
+		//return null;
 	}
 
 	@Override
