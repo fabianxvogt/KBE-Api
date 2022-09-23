@@ -22,7 +22,7 @@ public class UserService implements IUserService {
 
 	public UserService(UserRepository userRepository) {
 		this.userRepository = userRepository;
-		// this.userRepository.deleteAll();
+		this.userRepository.deleteAll();
 	}
 
 	@Override
@@ -50,8 +50,8 @@ public class UserService implements IUserService {
 
 	@Override
 	public List<User> readAll() {
-		// return this.userRepository.findAll();
-		return null;
+		return this.userRepository.findAll();
+		//return null;
 	}
 
 	@Override
