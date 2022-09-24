@@ -19,12 +19,9 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-@RestController
 @CrossOrigin
+@RestController
 class ProductController {
-
-  @Autowired
-  private SequenceGeneratorService sequenceGeneratorService;
 
   @Autowired
   private IProductService productService;
