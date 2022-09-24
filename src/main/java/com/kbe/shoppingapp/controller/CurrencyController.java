@@ -43,7 +43,7 @@ class CurrencyController {
     return this.currencyService.create(currency);
   }
 
-  @PutMapping("/currencies/{id}")
+  @PatchMapping("/currencies/{id}")
   public Currency updateCurrency(@PathVariable("id") long id, @RequestBody Currency currency) {
     return this.currencyService.update(currency, id);
   }
