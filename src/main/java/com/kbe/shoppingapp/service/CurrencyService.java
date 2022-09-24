@@ -32,6 +32,12 @@ public class CurrencyService implements ICurrencyService {
 		return (List<Currency>) this.currencyRepository.findAll();
 	}
 
+	@Override 
+	public Currency readById(Long currencyId)
+	{
+		return this.currencyRepository.findById(currencyId).get();
+	}
+
 	// Update operation
 	@Override
 	public Currency update(Currency currency, Long currencyId) {

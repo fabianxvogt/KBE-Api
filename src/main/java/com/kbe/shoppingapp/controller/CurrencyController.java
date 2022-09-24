@@ -22,12 +22,17 @@ class CurrencyController {
   private ICurrencyService currencyService;
 
   @GetMapping("/currencies")
-  public List<Currency> getCurrencys() {
+  public List<Currency> getCurrencies() {
     return (List<Currency>) this.currencyService.readAll();
   }
 
-  @GetMapping("/currencies/{isoCode}")
+  @GetMapping("/currencies/{id}")
   public Currency getCurrencyById(
+    @PathVariable("id") String id) {
+    return (Currency) this.currencyService.readById(id);
+  }
+  @GetMapping("/currencies/{isoCode}")
+  public Currency getCurrencyByIsoCode(
     @PathVariable("isoCode") String isoCode) {
     return (Currency) this.currencyService.readByIsoCode(isoCode);
   }
@@ -51,7 +56,7 @@ class CurrencyController {
   }
 
   @DeleteMapping("/currencies")
-  public String deleteAllCurrencys() {
+  public String deleteAllCurrencies() {
     this.currencyService.deleteAll();
 
     return "deleted all currencies";

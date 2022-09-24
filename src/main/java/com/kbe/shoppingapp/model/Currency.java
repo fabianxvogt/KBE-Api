@@ -12,7 +12,8 @@ public class Currency {
   @Transient
   public static final String SEQUENCE_NAME = "currency";
 
-  @Id private String iso;
+  @Id private String id;
+  private String iso;
   private String name;
   private Float usdConversionRate;
   
@@ -24,7 +25,12 @@ public class Currency {
     this.usdConversionRate = usdConversionRate;
     
   }
-
+  public String getId() {
+    return this.id;
+  }  
+  public void setId(String id) {
+    this.id = id;
+  }
   public String getIsoCode() {
     return this.iso;
   }

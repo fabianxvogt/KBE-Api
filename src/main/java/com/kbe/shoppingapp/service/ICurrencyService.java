@@ -12,6 +12,8 @@ public interface ICurrencyService {
   
     // Read operation
     List<Currency> readAll();
+
+    Currency readById(Long currencyId);
   
     // Update operation
     Currency update(Currency currency, Long currencyId);
