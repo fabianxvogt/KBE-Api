@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @RestController
+@CrossOrigin
 class CurrencyController {
 
   @Autowired
