@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-@CrossOrigin
+@CrossOrigin(origins = "*")
 @RestController
 class ProductController {
 
