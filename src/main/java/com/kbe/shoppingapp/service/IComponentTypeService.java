@@ -13,13 +13,13 @@ public interface IComponentTypeService {
     // Read operation
     List<ComponentType> readAll();
 
-    ComponentType readById(Long componentTypeId);
+    ComponentType readById(String componentTypeId);
   
     // Update operation
-    ComponentType update(ComponentType componentType, Long componentTypeId);
+    ComponentType update(ComponentType componentType, String componentTypeId);
   
     // Delete operation
-    void deleteById(Long componentTypeId);
+    void deleteById(String componentTypeId);
 
     void deleteAll();
 }

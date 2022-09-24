@@ -26,12 +26,12 @@ public class PriceService implements IPriceService {
 		this.priceRepository.deleteAll();
 	}
 
-	private Float calculateTotalUsdPrice(Long componentId) {
+	private Float calculateTotalUsdPrice(String componentId) {
 		try {
 			Component component = this.componentRepository.findById(componentId).get();
 			Float total = 0.f;
 			if (component.getUsdPrice() == null) {
-				for (Long childId : component.getComponentIds()) {
+				for (String childId : component.getComponentIds()) {
 					total += calculateTotalUsdPrice(childId);
 				}
 				return total;
@@ -44,7 +44,7 @@ public class PriceService implements IPriceService {
 	}
 
 	@Override
-	public Price calculatePriceForComponent(long componentId, String currencyIso) {
+	public Price calculatePriceForComponent(String componentId, String currencyIso) {
 		Currency currency = this.currencyRepository.findByIsoCode(currencyIso);
 		Float totalPrice = calculateTotalUsdPrice(componentId) * currency.getUsdConversionRate();
 		return new Price(totalPrice, currency.getIsoCode(), componentId);
@@ -71,7 +71,7 @@ public class PriceService implements IPriceService {
 
 	// Read operation
 	@Override 
-	public Price readById(Long componentId)
+	public Price readById(String componentId)
 	{
 		return this.priceRepository.findById(componentId).get();
 	}

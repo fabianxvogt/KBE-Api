@@ -10,7 +10,7 @@ public class Price {
   @Transient
   public static final String SEQUENCE_NAME = "price";
 
-  //private @Id Long id;
+  //private @Id String id;
 
   private Float totalPrice;
 
@@ -30,26 +30,26 @@ public class Price {
     this.currencyIsoCode = currencyIsoCode;
   }
 
-  public long getComponentId() {
+  public String getComponentId() {
     return componentId;
   }
 
-  public void setComponentId(long componentId) {
+  public void setComponentId(String componentId) {
     this.componentId = componentId;
   }
   private String currencyIsoCode;
 
-  private long componentId;
+  private String componentId;
   
   public Price() {}  
 
-  public Price(Float totalPrice, String currencyIsoCode, long componentId) {
+  public Price(Float totalPrice, String currencyIsoCode, String componentId) {
     this.totalPrice = totalPrice;
     this.currencyIsoCode = currencyIsoCode;
     this.componentId = componentId;
   }
 /* 
-public Long getId() {
+public String getId() {
     return this.id;
   }
 
@@ -57,7 +57,7 @@ public Long getId() {
     return this.name;
   }
 
-  public void setId(Long id) {
+  public void setId(String id) {
     this.id = id;
   }
 

@@ -19,14 +19,14 @@ class PriceController {
 
   @GetMapping("/price/{componentId}")
   public Price getPrice(
-    @PathVariable("componentId") long componentId,
+    @PathVariable("componentId") String componentId,
     @RequestParam(value = "currency") String currencyIso
   ) {
     return (Price) this.priceService.calculatePriceForComponent(componentId, currencyIso);
   }
   /* 
   @GetMapping("/prices/{id}")
-  public Price getPriceById(@PathVariable("id") long id) {
+  public Price getPriceById(@PathVariable("id") String id) {
     return (Price) this.priceService.readById(id);
   }
 
@@ -37,12 +37,12 @@ class PriceController {
   }
 
   @PutMapping("/prices/{id}")
-  public Price updatePrice(@PathVariable("id") long id, @RequestBody Price price) {
+  public Price updatePrice(@PathVariable("id") String id, @RequestBody Price price) {
     return this.priceService.update(price, id);
   }
 
   @DeleteMapping("/prices/{id}")
-  public String deletePrice(@PathVariable("id") long id) {
+  public String deletePrice(@PathVariable("id") String id) {
     this.priceService.deleteById(id);
 
     return "deleted price: " + id;

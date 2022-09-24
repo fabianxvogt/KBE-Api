@@ -34,14 +34,14 @@ public class ProductService implements IProductService {
 
 	// Read operation
 	@Override 
-	public Product readById(Long productId)
+	public Product readById(String productId)
 	{
 		return this.productRepository.findById(productId).get();
 	}
 
 	// Update operation
 	@Override
-	public Product update(Product product, Long productId) {
+	public Product update(Product product, String productId) {
 		Product _product = this.productRepository.findById(productId).get();
 
 		_product.setName(product.getName());
@@ -53,7 +53,7 @@ public class ProductService implements IProductService {
 
 	// Delete operation
 	@Override
-	public void deleteById(Long ProductId)
+	public void deleteById(String ProductId)
 	{
 		this.productRepository.deleteById(ProductId);
 	}

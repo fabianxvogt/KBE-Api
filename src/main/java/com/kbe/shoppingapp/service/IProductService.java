@@ -13,13 +13,13 @@ public interface IProductService {
     // Read operation
     List<Product> readAll();
 
-    Product readById(Long productId);
+    Product readById(String productId);
   
     // Update operation
-    Product update(Product product, Long productId);
+    Product update(Product product, String productId);
   
     // Delete operation
-    void deleteById(Long productId);
+    void deleteById(String productId);
 
     void deleteAll();
 

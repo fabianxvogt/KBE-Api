@@ -13,17 +13,17 @@ public class Component {
   @Transient
   public static final String SEQUENCE_NAME = "component";
 
-  private @Id Long id;
+  private @Id String id;
   private String name;
-  private Long componentTypeId;
+  private String componentTypeId;
   private List<Component> components; 
-  private List<Long> componentIds; 
+  private List<String> componentIds; 
   //private ComponentType componentType;
   private Float usdPrice;
   
   Component() {}
 
-  Component(String name, Long componentTypeId, Float usdPrice, List<Long> componentIds) {
+  Component(String name, String componentTypeId, Float usdPrice, List<String> componentIds) {
 
     this.name = name;
     this.componentTypeId = componentTypeId;
@@ -32,7 +32,7 @@ public class Component {
     this.componentIds = componentIds;
   }
 
-  public Long getId() {
+  public String getId() {
     return this.id;
   }
 
@@ -40,11 +40,11 @@ public class Component {
     return this.name;
   }
 
-  public Long getComponentTypeId() {
+  public String getComponentTypeId() {
     return this.componentTypeId;
   }
 
-  public void setId(Long id) {
+  public void setId(String id) {
     this.id = id;
   }
 
@@ -52,7 +52,7 @@ public class Component {
     this.name = name;
   }
 
-  public void setComponentTypeId(Long componentTypeId) {
+  public void setComponentTypeId(String componentTypeId) {
     this.componentTypeId = componentTypeId;
   }
 
@@ -99,10 +99,10 @@ public class Component {
   public List<Component> getComponents() {
     return this.components;
   }
-  public void setComponentIds(List<Long> componentIds) {
+  public void setComponentIds(List<String> componentIds) {
     this.componentIds = componentIds;
   }
-  public List<Long> getComponentIds() {
+  public List<String> getComponentIds() {
     return this.componentIds;
   }
 }

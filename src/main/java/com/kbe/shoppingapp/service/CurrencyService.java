@@ -33,17 +33,18 @@ public class CurrencyService implements ICurrencyService {
 	}
 
 	@Override 
-	public Currency readById(Long currencyId)
+	public Currency readById(String currencyId)
 	{
 		return this.currencyRepository.findById(currencyId).get();
 	}
 
 	// Update operation
 	@Override
-	public Currency update(Currency currency, Long currencyId) {
+	public Currency update(Currency currency, String currencyId) {
 		Currency _currency = this.currencyRepository.findById(currencyId).get();
 
 		_currency.setName(currency.getName());
+		_currency.setIsoCode(currency.getIsoCode());
 		_currency.setUsdConversionRate(currency.getUsdConversionRate());
 				
 		return this.currencyRepository.save(_currency);

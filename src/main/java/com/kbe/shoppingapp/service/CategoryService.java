@@ -34,14 +34,14 @@ public class CategoryService implements ICategoryService {
 
 	// Read operation
 	@Override 
-	public Category readById(Long categoryId)
+	public Category readById(String categoryId)
 	{
 		return this.categoryRepository.findById(categoryId).get();
 	}
 
 	// Update operation
 	@Override
-	public Category update(Category category, Long categoryId) {
+	public Category update(Category category, String categoryId) {
 		Category _category = this.categoryRepository.findById(categoryId).get();
 
 		_category.setCategoryName(category.getCategoryName());
@@ -53,7 +53,7 @@ public class CategoryService implements ICategoryService {
 
 	// Delete operation
 	@Override
-	public void deleteById(Long CategoryId)
+	public void deleteById(String CategoryId)
 	{
 		this.categoryRepository.deleteById(CategoryId);
 	}

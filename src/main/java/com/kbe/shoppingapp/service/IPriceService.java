@@ -13,7 +13,7 @@ public interface IPriceService {
     // Read operation
     List<Price> readAll();
 
-    Price readById(Long componentId);
+    Price readById(String componentId);
   
     // Update operation
     Price update(Price component, Long componentId);
@@ -23,5 +23,5 @@ public interface IPriceService {
 
     void deleteAll();
     */
-    Price calculatePriceForComponent(long componentId, String currencyIso);
+    Price calculatePriceForComponent(String componentId, String currencyIso);
 }

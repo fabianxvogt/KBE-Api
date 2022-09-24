@@ -38,23 +38,23 @@ class ComponentTypeController {
   }
 
   @GetMapping("/componentTypes/{id}")
-  public ComponentType getComponentTypeById(@PathVariable("id") long id) {
+  public ComponentType getComponentTypeById(@PathVariable("id") String id) {
     return (ComponentType) this.componentTypeService.readById(id);
   }
 
   @PostMapping("/componentTypes")
   ComponentType insertComponentType(@RequestBody ComponentType componentType) {
-    componentType.setId(sequenceGeneratorService.generateSequence(ComponentType.SEQUENCE_NAME));
+    //componentType.setId(sequenceGeneratorService.generateSequence(ComponentType.SEQUENCE_NAME));
     return this.componentTypeService.create(componentType);
   }
 
   @PutMapping("/componentTypes/{id}")
-  public ComponentType updateComponentType(@PathVariable("id") long id, @RequestBody ComponentType componentType) {
+  public ComponentType updateComponentType(@PathVariable("id") String id, @RequestBody ComponentType componentType) {
     return this.componentTypeService.update(componentType,id);
   }
 
   @DeleteMapping("/componentTypes/{id}")
-  public String deleteComponentType(@PathVariable("id") long id) {
+  public String deleteComponentType(@PathVariable("id") String id) {
     this.componentTypeService.deleteById(id);
     
     return "deleted component type: " + id;
@@ -79,14 +79,14 @@ class ComponentTypeController {
   // Single item
   
   @GetMapping("/componentTypes/{id}")
-  ComponentType one(@PathVariable Long id) {
+  ComponentType one(@PathVariable String id) {
     
     return repository.findById(id)
       .orElseThrow(() -> new ComponentTypeNotFoundException(id));
   }
 
   @PutMapping("/componentTypes/{id}")
-  ComponentType replaceComponentType(@RequestBody ComponentType newComponentType, @PathVariable Long id) {
+  ComponentType replaceComponentType(@RequestBody ComponentType newComponentType, @PathVariable String id) {
     
     return repository.findById(id)
       .map(ComponentType -> {
@@ -101,7 +101,7 @@ class ComponentTypeController {
   }
 
   @DeleteMapping("/componentTypes/{id}")
-  void deleteComponentType(@PathVariable Long id) {
+  void deleteComponentType(@PathVariable String id) {
     repository.deleteById(id);
   }
   */

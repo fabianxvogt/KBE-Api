@@ -13,7 +13,7 @@ public class Category {
   @Transient
   public static final String SEQUENCE_NAME = "category";
 
-  private @Id Long id;
+  private @Id String id;
   private String categoryName;
   private List<Product> products; 
   private List<Long> productIds; 
@@ -30,10 +30,10 @@ public class Category {
     this.productIds = productIds;
   }
 
-  public Long getId() {
+  public String getId() {
     return this.id;
   }
-  public void setId(Long id) {
+  public void setId(String id) {
     this.id = id;
   }
 

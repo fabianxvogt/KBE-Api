@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CurrencyRepository extends MongoRepository<Currency, Long> {
+public interface CurrencyRepository extends MongoRepository<Currency, String> {
     
     @Query("SELECT * FROM Currency c WHERE c.isoCode = ?1")
     Currency findByIsoCode(String isoCode);

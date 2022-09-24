@@ -35,7 +35,7 @@ public class ComponentTypeService
 
 	// Read operation
 	@Override 
-	public ComponentType readById(Long componentTypeId)
+	public ComponentType readById(String componentTypeId)
 	{
 		return this.componentTypeRepository.findById(componentTypeId).get();
 	}
@@ -44,7 +44,7 @@ public class ComponentTypeService
 	@Override
 	public ComponentType update(
 		ComponentType componentType,
-		Long componentTypeId
+		String componentTypeId
 	) {
 		ComponentType _componentType = this.componentTypeRepository.findById(componentTypeId).get();
 
@@ -55,7 +55,7 @@ public class ComponentTypeService
 
 	// Delete operation
 	@Override
-	public void deleteById(Long ComponentTypeId)
+	public void deleteById(String ComponentTypeId)
 	{
 		this.componentTypeRepository.deleteById(ComponentTypeId);
 	}

@@ -12,7 +12,7 @@ public class ComponentType {
   @Transient
   public static final String SEQUENCE_NAME = "componentType";
 
-  private @Id Long id;
+  private @Id String id;
   private String name;
   
   ComponentType() {}
@@ -21,7 +21,7 @@ public class ComponentType {
     this.name = name;
   }
 
-  public Long getId() {
+  public String getId() {
     return this.id;
   }
 
@@ -29,7 +29,7 @@ public class ComponentType {
     return this.name;
   }
 
-  public void setId(Long id) {
+  public void setId(String id) {
     this.id = id;
   }
 

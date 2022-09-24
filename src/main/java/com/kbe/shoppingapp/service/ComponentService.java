@@ -38,14 +38,14 @@ public class ComponentService implements IComponentService {
 
 	// Read operation
 	@Override 
-	public Component readById(Long componentId)
+	public Component readById(String componentId)
 	{
 		return this.componentRepository.findById(componentId).get();
 	}
 
 	// Update operation
 	@Override
-	public Component update(Component component, Long componentId) {
+	public Component update(Component component, String componentId) {
 		Component _component = this.componentRepository.findById(componentId).get();
 
 		_component.setName(component.getName());
@@ -57,7 +57,7 @@ public class ComponentService implements IComponentService {
 
 	// Delete operation
 	@Override
-	public void deleteById(Long ComponentId)
+	public void deleteById(String ComponentId)
 	{
 		this.componentRepository.deleteById(ComponentId);
 	}

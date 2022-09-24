@@ -12,7 +12,7 @@ public class Currency {
   @Transient
   public static final String SEQUENCE_NAME = "currency";
 
-  @Id private String id;
+  private @Id String id;
   private String iso;
   private String name;
   private Float usdConversionRate;
@@ -54,16 +54,17 @@ public class Currency {
     if (!(o instanceof Currency))
       return false;
       Currency c = (Currency) o;
-    return Objects.equals(this.iso, c.iso) && Objects.equals(this.name, c.name);
+    return Objects.equals(this.id, c.id) && Objects.equals(this.name, c.name);
   }
   @Override
   public int hashCode() {
-    return Objects.hash(this.iso, this.name);
+    return Objects.hash(this.id, this.name);
   }
 
   @Override
   public String toString() {
     return "Currency{" + 
+      "id=" + this.id + ", " + 
       "isoCode=" + this.iso + ", " + 
       "name='" + this.name + "\'," +
       "usdConversionRate=" + this.usdConversionRate + 

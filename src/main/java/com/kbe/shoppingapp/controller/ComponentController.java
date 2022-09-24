@@ -34,7 +34,7 @@ class ComponentController {
 
   @GetMapping("/components/{id}")
   public Component getComponentById(
-    @PathVariable("id") long id,
+    @PathVariable("id") String id,
     @RequestParam(value = "loadChildComponents") Boolean loadChildComponents
   ) {
     Component component = (Component) this.componentService.readById(id);
@@ -46,7 +46,7 @@ class ComponentController {
 
   private Component loadComponentChildren(Component component) {
       List<Component> children = new ArrayList<Component>();
-      for (Long componentId : component.getComponentIds()) {
+      for (String componentId : component.getComponentIds()) {
         try {
           Component child = this.componentService.readById(componentId);  
           children.add(child);   
@@ -64,17 +64,17 @@ class ComponentController {
 
   @PostMapping("/components")
   Component insertComponent(@RequestBody Component component) {
-    component.setId(sequenceGeneratorService.generateSequence(Component.SEQUENCE_NAME));
+    //component.setId(sequenceGeneratorService.generateSequence(Component.SEQUENCE_NAME));
     return this.componentService.create(component);
   }
 
   @PutMapping("/components/{id}")
-  public Component updateComponent(@PathVariable("id") long id, @RequestBody Component component) {
+  public Component updateComponent(@PathVariable("id") String id, @RequestBody Component component) {
     return this.componentService.update(component, id);
   }
 
   @DeleteMapping("/components/{id}")
-  public String deleteComponent(@PathVariable("id") long id) {
+  public String deleteComponent(@PathVariable("id") String id) {
     this.componentService.deleteById(id);
 
     return "deleted component: " + id;
@@ -88,9 +88,9 @@ class ComponentController {
   }
   @PostMapping("/componentTypes/{componentTypeId}/components")
   public Component create(
-      @PathVariable(value = "componentTypeId") Long componentTypeId,
+      @PathVariable(value = "componentTypeId") String componentTypeId,
       @RequestBody Component component) {
-    component.setId(sequenceGeneratorService.generateSequence(Component.SEQUENCE_NAME));
+    //component.setId(sequenceGeneratorService.generateSequence(Component.SEQUENCE_NAME));
     component.setComponentTypeId(componentTypeId);
     return this.componentService.create(component);
   }

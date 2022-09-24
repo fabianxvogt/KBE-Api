@@ -28,7 +28,7 @@ class CurrencyController {
 
   @GetMapping("/currencies/{id}")
   public Currency getCurrencyById(
-    @PathVariable("id") Long id) {
+    @PathVariable("id") String id) {
     return (Currency) this.currencyService.readById(id);
   }
   @GetMapping("/currencies/{isoCode}")
@@ -44,12 +44,12 @@ class CurrencyController {
   }
 
   @PatchMapping("/currencies/{id}")
-  public Currency updateCurrency(@PathVariable("id") long id, @RequestBody Currency currency) {
+  public Currency updateCurrency(@PathVariable("id") String id, @RequestBody Currency currency) {
     return this.currencyService.update(currency, id);
   }
 
-  @DeleteMapping("/currencies/{isoCode}")
-  public String deleteCurrency(@PathVariable("isoCode") String isoCode) {
+  @DeleteMapping("/currencies/{id}")
+  public String deleteCurrency(@PathVariable("id") String isoCode) {
     this.currencyService.deleteByIsoCode(isoCode);
 
     return "deleted currency: " + isoCode;

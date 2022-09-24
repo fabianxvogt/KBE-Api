@@ -36,7 +36,7 @@ class CategoryController {
 
   @GetMapping("/category/{id}")
   public Category getCategoryById(
-    @PathVariable("id") long id
+    @PathVariable("id") String id
   ) {
     Category category = (Category) this.categoryService.readById(id);
     return category;
@@ -44,17 +44,17 @@ class CategoryController {
 
   @PostMapping("/category")
   Category insertCategory(@RequestBody Category category) {
-    category.setId(sequenceGeneratorService.generateSequence(Category.SEQUENCE_NAME));
+    //category.setId(sequenceGeneratorService.generateSequence(Category.SEQUENCE_NAME));
     return this.categoryService.create(category);
   }
 
   @PatchMapping("/category/{id}")
-  public Category updateCategory(@PathVariable("id") long id, @RequestBody Category category) {
+  public Category updateCategory(@PathVariable("id") String id, @RequestBody Category category) {
     return this.categoryService.update(category, id);
   }
 
   @DeleteMapping("/category/{id}")
-  public String deleteCategory(@PathVariable("id") long id) {
+  public String deleteCategory(@PathVariable("id") String id) {
     this.categoryService.deleteById(id);
 
     return "deleted category: " + id;

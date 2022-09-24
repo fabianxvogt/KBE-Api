@@ -39,7 +39,7 @@ class ProductController {
 
   @GetMapping("/product/{id}")
   public Product getProductById(
-    @PathVariable("id") long id,
+    @PathVariable("id") String id,
     @RequestParam(value = "loadChildProducts") Boolean loadChildProducts
   ) {
     Product product = (Product) this.productService.readById(id);
@@ -51,7 +51,7 @@ class ProductController {
 
   private Product loadComponents(Product product) {
       List<Component> components = new ArrayList<Component>();
-      for (Long componentId : product.getComponentIds()) {
+      for (String componentId : product.getComponentIds()) {
         try {
           Component c = this.componentService.readById(componentId);  
           components.add(c);   
@@ -69,17 +69,17 @@ class ProductController {
 
   @PostMapping("/product")
   Product insertProduct(@RequestBody Product product) {
-    product.setId(sequenceGeneratorService.generateSequence(Product.SEQUENCE_NAME));
+    //product.setId(sequenceGeneratorService.generateSequence(Product.SEQUENCE_NAME));
     return this.productService.create(product);
   }
 
   @PatchMapping("/product/{id}")
-  public Product updateProduct(@PathVariable("id") long id, @RequestBody Product product) {
+  public Product updateProduct(@PathVariable("id") String id, @RequestBody Product product) {
     return this.productService.update(product, id);
   }
 
   @DeleteMapping("/product/{id}")
-  public String deleteProduct(@PathVariable("id") long id) {
+  public String deleteProduct(@PathVariable("id") String id) {
     this.productService.deleteById(id);
 
     return "deleted product: " + id;
@@ -93,9 +93,9 @@ class ProductController {
   }
   @PostMapping("/productTypes/{productTypeId}/product")
   public Product create(
-      @PathVariable(value = "productTypeId") Long productTypeId,
+      @PathVariable(value = "productTypeId") String productTypeId,
       @RequestBody Product product) {
-    product.setId(sequenceGeneratorService.generateSequence(Product.SEQUENCE_NAME));
+    //product.setId(sequenceGeneratorService.generateSequence(Product.SEQUENCE_NAME));
     return this.productService.create(product);
   }
 }

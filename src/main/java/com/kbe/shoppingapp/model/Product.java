@@ -13,18 +13,18 @@ public class Product {
   @Transient
   public static final String SEQUENCE_NAME = "product";
 
-  private @Id Long id;
+  private @Id String id;
   private String name;
   private List<Component> components; 
-  private List<Long> componentIds; 
+  private List<String> componentIds; 
   private Float price;
   private String imageURL;
   private String description;
-  private Long categoryId;
+  private String categoryId;
   
   Product() {}
 
-  Product(String name, String description, Float price, String imageURL, Long categoryId, List<Long> componentIds) {
+  Product(String name, String description, Float price, String imageURL, String categoryId, List<String> componentIds) {
 
     this.name = name;
     this.description = description;
@@ -34,17 +34,17 @@ public class Product {
     this.componentIds = componentIds;
   }
 
-  public Long getId() {
+  public String getId() {
     return this.id;
   }
-  public void setId(Long id) {
+  public void setId(String id) {
     this.id = id;
   }
 
-  public Long getCategoryId() {
+  public String getCategoryId() {
     return this.categoryId;
   }
-  public void setCategoryId(Long categoryId) {
+  public void setCategoryId(String categoryId) {
     this.categoryId = categoryId;
   }
 
@@ -113,10 +113,10 @@ public class Product {
   public List<Component> getComponents() {
     return this.components;
   }
-  public void setComponentIds(List<Long> componentIds) {
+  public void setComponentIds(List<String> componentIds) {
     this.componentIds = componentIds;
   }
-  public List<Long> getComponentIds() {
+  public List<String> getComponentIds() {
     return this.componentIds;
   }
 }

@@ -13,10 +13,10 @@ public interface ICurrencyService {
     // Read operation
     List<Currency> readAll();
 
-    Currency readById(Long currencyId);
+    Currency readById(String currencyId);
   
     // Update operation
-    Currency update(Currency currency, Long currencyId);
+    Currency update(Currency currency, String currencyId);
 
     void deleteAll();
 

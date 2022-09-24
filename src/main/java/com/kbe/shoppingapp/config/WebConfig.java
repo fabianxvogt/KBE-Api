@@ -1,4 +1,4 @@
-package main.java.com.kbe.shoppingapp.config;
+package com.kbe.shoppingapp.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;

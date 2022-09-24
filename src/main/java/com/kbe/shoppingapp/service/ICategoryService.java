@@ -13,13 +13,13 @@ public interface ICategoryService {
     // Read operation
     List<Category> readAll();
 
-    Category readById(Long categoryId);
+    Category readById(String categoryId);
   
     // Update operation
-    Category update(Category category, Long categoryId);
+    Category update(Category category, String categoryId);
   
     // Delete operation
-    void deleteById(Long categoryId);
+    void deleteById(String categoryId);
 
     void deleteAll();
 
