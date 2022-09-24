@@ -28,7 +28,7 @@ class CurrencyController {
 
   @GetMapping("/currencies/{id}")
   public Currency getCurrencyById(
-    @PathVariable("id") String id) {
+    @PathVariable("id") Long id) {
     return (Currency) this.currencyService.readById(id);
   }
   @GetMapping("/currencies/{isoCode}")
