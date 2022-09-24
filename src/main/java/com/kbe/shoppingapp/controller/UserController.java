@@ -15,7 +15,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "*")
 class UserController {
 
   @Autowired
