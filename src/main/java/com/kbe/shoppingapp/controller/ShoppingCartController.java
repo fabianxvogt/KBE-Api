@@ -28,37 +28,4 @@ class ShoppingCartController {
   public List<ShoppingCart> getCartItems() {
     return (List<ShoppingCart>) this.shoppingCartService.readAll();
   }
-
-  @GetMapping("/category/{id}")
-  public ShoppingCart getCategoryById(
-    @PathVariable("id") String id
-  ) {
-    ShoppingCart shoppingCart = (ShoppingCart) this.shoppingCartService.readById(id);
-    return shoppingCart;
-  }
-
-  @PostMapping("/category")
-  ShoppingCart insertCategory(@RequestBody ShoppingCart shoppingCart) {
-    //category.setId(sequenceGeneratorService.generateSequence(Category.SEQUENCE_NAME));
-    return this.shoppingCartService.create(shoppingCart);
-  }
-
-  @PatchMapping("/category/{id}")
-  public ShoppingCart updateShoppingCart(@PathVariable("id") String id, @RequestBody ShoppingCart shoppingCart) {
-    return this.shoppingCartService.update(shoppingCart, id);
-  }
-
-  @DeleteMapping("/category/{id}")
-  public String deleteCategory(@PathVariable("id") String id) {
-    this.shoppingCartService.deleteById(id);
-
-    return "deleted category: " + id;
-  }
-
-  @DeleteMapping("/category")
-  public String deleteAllCategorys() {
-    this.shoppingCartService.deleteAll();
-
-    return "deleted all category";
-  }
 }
