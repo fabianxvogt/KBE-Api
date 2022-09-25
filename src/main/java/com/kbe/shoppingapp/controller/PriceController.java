@@ -17,7 +17,7 @@ class PriceController {
   @Autowired
   private IPriceService priceService;
 
-  @GetMapping("/price/{productId}")
+  @GetMapping("/price/product/{productId}")
   public Price getPrice(
     @PathVariable("productId") String productId,
     @RequestParam(value = "currency") String currencyIso
@@ -25,7 +25,7 @@ class PriceController {
     return (Price) this.priceService.calculatePriceForProduct(productId, currencyIso);
   }
 
-  @GetMapping("/price/{cartId}")
+  @GetMapping("/price/cart/{cartId}")
   public Price getPriceForShopping(
     @PathVariable("cartId") String componentId,
     @RequestParam(value = "currency") String currencyIso
