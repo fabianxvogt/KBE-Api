@@ -31,12 +31,13 @@ class CurrencyController {
     @PathVariable("id") String id) {
     return (Currency) this.currencyService.readById(id);
   }
+  /*
   @GetMapping("/currencies/{isoCode}")
   public Currency getCurrencyByIsoCode(
     @PathVariable("isoCode") String isoCode) {
     return (Currency) this.currencyService.readByIsoCode(isoCode);
   }
-
+ */
   @PostMapping("/currencies")
   Currency insertCurrency(@RequestBody Currency currency) {
     //currency.setId(sequenceGeneratorService.generateSequence(Currency.SEQUENCE_NAME));
