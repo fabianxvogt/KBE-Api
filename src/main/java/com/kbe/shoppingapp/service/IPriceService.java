@@ -23,5 +23,5 @@ public interface IPriceService {
 
     void deleteAll();
     */
-    Price calculatePriceForComponent(String componentId, String currencyIso);
+    Price calculatePriceForProduct(String productId, String currencyIso);
 }

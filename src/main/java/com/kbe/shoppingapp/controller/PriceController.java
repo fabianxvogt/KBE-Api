@@ -24,6 +24,16 @@ class PriceController {
   ) {
     return (Price) this.priceService.calculatePriceForComponent(componentId, currencyIso);
   }
+
+  @GetMapping("/price/{cartId}")
+  public Price getPriceForShopping(
+    @PathVariable("cartId") String componentId,
+    @RequestParam(value = "currency") String currencyIso
+  ) {
+    return (Price) this.priceService.calculatePriceForComponent(componentId, currencyIso);
+  }
+
+
   /* 
   @GetMapping("/prices/{id}")
   public Price getPriceById(@PathVariable("id") String id) {

@@ -16,7 +16,7 @@ public class ShoppingCart {
 
   //ID hinzufügen, um shopping cart für jeden User individuell zu gestalten
   private @Id String userMail;
-  private List<Product> prodcutsInCart;
+  private List<Product> prodcutsInCart; 
   private double totalAmount;
   
   
