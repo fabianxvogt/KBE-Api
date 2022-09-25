@@ -22,14 +22,14 @@ class UserController {
   private IUserService userService;
 
   @PostMapping("/user/signup")
-  public User singUp(
+  public User signUp(
     @RequestBody User user
   ) throws EmailAlreadyExistsException {
     return (User) this.userService.signUp(user);
   }
 
   @PostMapping("/user/signin")
-  public User singIn(
+  public User signIn(
     @RequestBody User user
   ) throws Exception {
     return (User) this.userService.signIn(user.email, user.password);
