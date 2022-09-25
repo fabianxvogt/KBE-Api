@@ -17,12 +17,12 @@ class PriceController {
   @Autowired
   private IPriceService priceService;
 
-  @GetMapping("/price/{componentId}")
+  @GetMapping("/price/{productId}")
   public Price getPrice(
-    @PathVariable("componentId") String componentId,
+    @PathVariable("productId") String productId,
     @RequestParam(value = "currency") String currencyIso
   ) {
-    return (Price) this.priceService.calculatePriceForComponent(componentId, currencyIso);
+    return (Price) this.priceService.calculatePriceForProduct(productId, currencyIso);
   }
 
   @GetMapping("/price/{cartId}")
@@ -30,7 +30,7 @@ class PriceController {
     @PathVariable("cartId") String componentId,
     @RequestParam(value = "currency") String currencyIso
   ) {
-    return (Price) this.priceService.calculatePriceForComponent(componentId, currencyIso);
+    return (Price) this.priceService.calculatePriceForProduct(componentId, currencyIso);
   }
 
 
