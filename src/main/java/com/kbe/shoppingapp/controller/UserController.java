@@ -32,7 +32,7 @@ class UserController {
   public User signIn(
     @RequestBody User user
   ) throws Exception {
-    return (User) this.userService.signIn(user.email, user.password);
+    return (User) this.userService.signIn(user.getEmail(), user.getPassword());
   }
   @GetMapping("/user")
   public List<User> getUsers() {

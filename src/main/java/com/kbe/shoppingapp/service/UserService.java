@@ -2,12 +2,7 @@
 package com.kbe.shoppingapp.service;
 
 import com.kbe.shoppingapp.exception.EmailAlreadyExistsException;
-import com.kbe.shoppingapp.model.Component;
-import com.kbe.shoppingapp.model.Currency;
 import com.kbe.shoppingapp.model.User;
-import com.kbe.shoppingapp.repository.ComponentRepository;
-import com.kbe.shoppingapp.repository.CurrencyRepository;
-import com.kbe.shoppingapp.repository.UserRepository;
 import com.kbe.shoppingapp.repository.UserRepository;
 
 import java.util.List;
@@ -27,7 +22,7 @@ public class UserService implements IUserService {
 
 	@Override
 	public User signUp(User user) throws EmailAlreadyExistsException {
-		User exists = this.userRepository.findByEmail(user.email);
+		User exists = this.userRepository.findByEmail(user.getEmail());
 		if (exists != null) {
 			throw new EmailAlreadyExistsException();
 		}
@@ -41,7 +36,7 @@ public class UserService implements IUserService {
 		if (user == null) {
 			throw new Exception("Email not found!");
 		}
-		if (user.password.equals(password)) {
+		if (user.getPassword().equals(password)) {
 			return user;
 		}
 		throw new Exception("Login error! Wrong email or password");

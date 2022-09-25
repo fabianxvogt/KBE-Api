@@ -2,6 +2,7 @@ package com.kbe.shoppingapp.model;
 
 
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
 
 @Document
@@ -10,10 +11,18 @@ public class User {
   @Transient
   public static final String SEQUENCE_NAME = "user";
 
-  public String email;
-  public String password; // TODO: Hash
-  public String firstName;
-  public String lastName;
+  private @Id String id;
+  private String email;
+  private String password; // TODO: Hash
+  private String firstName;
+  private String lastName;
+
+  public String getId() {
+    return this.id;
+  }
+  public void setId(String id) {
+    this.id = id;
+  }
 
   public String getEmail() {
     return email;
@@ -21,6 +30,14 @@ public class User {
 
   public void setEmail(String email) {
     this.email = email;
+  }
+
+  public String getPassword() {
+    return email;
+  }
+
+  public void setPassword(String password) {
+    this.password = password;
   }
 
   public String getFirstName() {
@@ -50,6 +67,7 @@ public class User {
   @Override
   public String toString() {
     return "User{" + 
+      "id=" + this.id + ", " + 
       "email=" + this.email + ", " + 
       "password='" + this.password + "\'" +
       "firstName=" + this.firstName + "\'" +
