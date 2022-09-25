@@ -26,7 +26,7 @@ public class UserService implements IUserService {
 	}
 
 	@Override
-	public User singUp(User user) throws EmailAlreadyExistsException {
+	public User signUp(User user) throws EmailAlreadyExistsException {
 		User exists = this.userRepository.findByEmail(user.email);
 		if (exists != null) {
 			throw new EmailAlreadyExistsException();
@@ -36,7 +36,7 @@ public class UserService implements IUserService {
 	}
 
 	@Override
-	public User singIn(String email, String password) throws Exception {
+	public User signIn(String email, String password) throws Exception {
 		User user = this.userRepository.findByEmail(email);
 		if (user == null) {
 			throw new Exception("Email not found!");

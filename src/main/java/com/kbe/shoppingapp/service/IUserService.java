@@ -8,9 +8,9 @@ import org.springframework.stereotype.Service;
 @Service
 public interface IUserService {
         // Save operation
-        User singUp(User user) throws EmailAlreadyExistsException;
+        User signUp(User user) throws EmailAlreadyExistsException;
 
-        User singIn(String email, String password) throws Exception;
+        User signIn(String email, String password) throws Exception;
   
         // Read operation
         List<User> readAll();

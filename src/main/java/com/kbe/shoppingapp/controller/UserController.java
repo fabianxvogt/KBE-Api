@@ -25,14 +25,14 @@ class UserController {
   public User singUp(
     @RequestBody User user
   ) throws EmailAlreadyExistsException {
-    return (User) this.userService.singUp(user);
+    return (User) this.userService.signUp(user);
   }
 
   @PostMapping("/user/signin")
   public User singIn(
     @RequestBody User user
   ) throws Exception {
-    return (User) this.userService.singIn(user.email, user.password);
+    return (User) this.userService.signIn(user.email, user.password);
   }
   @GetMapping("/user")
   public List<User> getUsers() {
