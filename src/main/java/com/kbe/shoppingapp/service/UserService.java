@@ -22,17 +22,20 @@ public class UserService implements IUserService {
 
 	@Override
 	public User signUp(User user) throws EmailAlreadyExistsException {
-		User exists = this.userRepository.findByEmail(user.getEmail());
+		String email = user.getEmail();
+		User exists = null;
+		try {
+			exists = this.userRepository.findById(email).get();
+		} catch (Exception e) { }
 		if (exists != null) {
 			throw new EmailAlreadyExistsException();
 		}
 		return this.userRepository.save(user);
-		//return null;
 	}
 
 	@Override
 	public User signIn(String email, String password) throws Exception {
-		User user = this.userRepository.findByEmail(email);
+		User user = this.userRepository.findById(email).get();
 		if (user == null) {
 			throw new Exception("Email not found!");
 		}
