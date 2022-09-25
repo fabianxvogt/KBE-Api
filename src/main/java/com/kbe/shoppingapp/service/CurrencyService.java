@@ -33,18 +33,17 @@ public class CurrencyService implements ICurrencyService {
 	}
 
 	@Override 
-	public Currency readById(String currencyId)
+	public Currency readById(String currencyIso)
 	{
-		return this.currencyRepository.findById(currencyId).get();
+		return this.currencyRepository.findById(currencyIso).get();
 	}
 
 	// Update operation
 	@Override
-	public Currency update(Currency currency, String currencyId) {
-		Currency _currency = this.currencyRepository.findById(currencyId).get();
+	public Currency update(Currency currency, String currencyIso) {
+		Currency _currency = this.currencyRepository.findById(currencyIso).get();
 
 		_currency.setName(currency.getName());
-		_currency.setIsoCode(currency.getIsoCode());
 		_currency.setUsdConversionRate(currency.getUsdConversionRate());
 				
 		return this.currencyRepository.save(_currency);
@@ -54,7 +53,7 @@ public class CurrencyService implements ICurrencyService {
 	@Override
 	public void deleteByIsoCode(String isoCode)
 	{
-		this.currencyRepository.deleteByIsoCode(isoCode);
+		this.currencyRepository.deleteById(isoCode);
 	}
 
 	@Override

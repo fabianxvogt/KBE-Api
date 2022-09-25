@@ -26,10 +26,10 @@ class CurrencyController {
     return (List<Currency>) this.currencyService.readAll();
   }
 
-  @GetMapping("/currencies/{id}")
+  @GetMapping("/currencies/{isoCode}")
   public Currency getCurrencyById(
-    @PathVariable("id") String id) {
-    return (Currency) this.currencyService.readById(id);
+    @PathVariable("id") String isoCode) {
+    return (Currency) this.currencyService.readById(isoCode);
   }
   /*
   @GetMapping("/currencies/{isoCode}")
@@ -44,13 +44,13 @@ class CurrencyController {
     return this.currencyService.create(currency);
   }
 
-  @PatchMapping("/currencies/{id}")
-  public Currency updateCurrency(@PathVariable("id") String id, @RequestBody Currency currency) {
-    return this.currencyService.update(currency, id);
+  @PatchMapping("/currencies/{isoCode}")
+  public Currency updateCurrency(@PathVariable("isoCode") String isoCode, @RequestBody Currency currency) {
+    return this.currencyService.update(currency, isoCode);
   }
 
-  @DeleteMapping("/currencies/{id}")
-  public String deleteCurrency(@PathVariable("id") String isoCode) {
+  @DeleteMapping("/currencies/{isoCode}")
+  public String deleteCurrency(@PathVariable("isoCode") String isoCode) {
     this.currencyService.deleteByIsoCode(isoCode);
 
     return "deleted currency: " + isoCode;

@@ -46,7 +46,7 @@ public class PriceService implements IPriceService {
 	@Override
 	public Price calculatePriceForProduct(String productId, String currencyIso) {
 		Currency currency = this.currencyRepository.findById(currencyIso).get();
-		Float totalPrice = calculateTotalUsdPrice(productId) * currency.getUsdConversionRate();
+		Float totalPrice = calculateTotalUsdPrice(productId) / currency.getUsdConversionRate();
 		return new Price(totalPrice, currency.getIsoCode(), productId);
 	}
 
