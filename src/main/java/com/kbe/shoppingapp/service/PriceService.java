@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 public class PriceService implements IPriceService {
 
 	@Autowired
-	ProductRepository productRepository;
+	private final ProductRepository productRepository;
 	private final PriceRepository priceRepository;
 	private final CurrencyRepository currencyRepository;
 
