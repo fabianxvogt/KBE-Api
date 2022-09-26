@@ -25,38 +25,38 @@ class ShoppingCartController {
 
 
   @GetMapping("/cart")
-  public List<ShoppingCart> getCartItems() {
+  public List<ShoppingCart> getShoppingCartItems() {
     return (List<ShoppingCart>) this.shoppingCartService.readAll();
   }
 
-  @GetMapping("/category/{id}")
-  public ShoppingCart getCategoryById(
+  @GetMapping("/cart/{id}")
+  public ShoppingCart getShoppingCartById(
     @PathVariable("id") String id
   ) {
     ShoppingCart shoppingCart = (ShoppingCart) this.shoppingCartService.readById(id);
     return shoppingCart;
   }
 
-  @PostMapping("/category")
-  ShoppingCart insertCategory(@RequestBody ShoppingCart shoppingCart) {
+  @PostMapping("/cart")
+  ShoppingCart insertShoppingCart(@RequestBody ShoppingCart shoppingCart) {
     //category.setId(sequenceGeneratorService.generateSequence(Category.SEQUENCE_NAME));
     return this.shoppingCartService.create(shoppingCart);
   }
 
-  @PatchMapping("/category/{id}")
-  public ShoppingCart updateShoppingCart(@PathVariable("id") String id, @RequestBody ShoppingCart shoppingCart) {
-    return this.shoppingCartService.update(shoppingCart, id);
+  @PatchMapping("/cart/{id}")
+  public ShoppingCart updateShoppingCart(@PathVariable("id") String id, @RequestBody ShoppingCart shoppingCart, @RequestBody Product p) {
+    return this.shoppingCartService.update(shoppingCart, id, p);
   }
 
-  @DeleteMapping("/category/{id}")
+  @DeleteMapping("/cart/{id}")
   public String deleteCategory(@PathVariable("id") String id) {
     this.shoppingCartService.deleteById(id);
 
-    return "deleted category: " + id;
+    return "deleted shopping cart from user: " + id;
   }
 
-  @DeleteMapping("/category")
-  public String deleteAllCategorys() {
+  @DeleteMapping("/cart")
+  public String deleteAllShoppingCarts() {
     this.shoppingCartService.deleteAll();
 
     return "deleted all category";

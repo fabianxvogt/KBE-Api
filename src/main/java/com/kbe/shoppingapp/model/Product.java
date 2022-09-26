@@ -101,6 +101,7 @@ public class Product {
   public Float getPrice() {
     return this.price;
   }
+  
   // public void setProductType(ProductType componentType) {
   //   this.componentType = componentType;
   // }
