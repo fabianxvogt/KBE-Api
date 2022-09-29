@@ -44,9 +44,21 @@ public class ProductService implements IProductService {
 	public Product update(Product product, String productId) {
 		Product _product = this.productRepository.findById(productId).get();
 
-		_product.setName(product.getName());
-		_product.setPrice(product.getPrice());
-		_product.setComponentIds(product.getComponentIds());
+		if (product.getName() != null) { 
+			_product.setName(product.getName()); 
+		}
+		if (product.getDescription() != null) {
+			_product.setDescription(product.getDescription()); 
+		}
+		if (product.getPrice() != null) {
+			_product.setPrice(product.getPrice()); 
+		}
+		if (product.getImageURL() != null) {
+			_product.setImageURL(product.getImageURL()); 
+		}
+		if (product.getComponentIds() != null) {
+			_product.setComponentIds(product.getComponentIds()); 
+		}
 				
 		return this.productRepository.save(_product);
 	}

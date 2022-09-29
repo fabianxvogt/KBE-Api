@@ -1,10 +1,10 @@
 
 package com.kbe.shoppingapp.service;
 
-import com.kbe.shoppingapp.model.Component;
+import com.kbe.shoppingapp.model.Product;
 import com.kbe.shoppingapp.model.Currency;
 import com.kbe.shoppingapp.model.Price;
-import com.kbe.shoppingapp.repository.ComponentRepository;
+import com.kbe.shoppingapp.repository.ProductRepository;
 import com.kbe.shoppingapp.repository.CurrencyRepository;
 import com.kbe.shoppingapp.repository.PriceRepository;
 import java.util.List;
@@ -15,28 +15,28 @@ import org.springframework.stereotype.Service;
 public class PriceService implements IPriceService {
 
 	@Autowired
-	private final ComponentRepository componentRepository;
+	private final ProductRepository productRepository;
 	private final PriceRepository priceRepository;
 	private final CurrencyRepository currencyRepository;
 
-	public PriceService(PriceRepository priceRepository, ComponentRepository componentRepository, CurrencyRepository currencyRepository) {
+	public PriceService(PriceRepository priceRepository, ProductRepository productRepository, CurrencyRepository currencyRepository) {
 		this.priceRepository = priceRepository;
-		this.componentRepository = componentRepository;
+		this.productRepository = productRepository;
 		this.currencyRepository = currencyRepository;
 		this.priceRepository.deleteAll();
 	}
 
-	private Float calculateTotalUsdPrice(String componentId) {
+	private Float calculateTotalUsdPrice(String productId) {
 		try {
-			Component component = this.componentRepository.findById(componentId).get();
+			Product product = this.productRepository.findById(productId).get();
 			Float total = 0.f;
-			if (component.getUsdPrice() == null) {
-				for (String childId : component.getComponentIds()) {
+			if (product.getPrice() == null) {
+				for (String childId : product.getComponentIds()) {
 					total += calculateTotalUsdPrice(childId);
 				}
 				return total;
 			} else {
-				return component.getUsdPrice();
+				return product.getPrice();
 			}
 		} catch (Exception e) {
 			return 0.f;
@@ -44,10 +44,10 @@ public class PriceService implements IPriceService {
 	}
 
 	@Override
-	public Price calculatePriceForComponent(String componentId, String currencyIso) {
-		Currency currency = this.currencyRepository.findByIsoCode(currencyIso);
-		Float totalPrice = calculateTotalUsdPrice(componentId) * currency.getUsdConversionRate();
-		return new Price(totalPrice, currency.getIsoCode(), componentId);
+	public Price calculatePriceForProduct(String productId, String currencyIso) {
+		Currency currency = this.currencyRepository.findById(currencyIso).get();
+		Float totalPrice = calculateTotalUsdPrice(productId) / currency.getUsdConversionRate();
+		return new Price(totalPrice, currency.getIsoCode(), productId);
 	}
 
 	

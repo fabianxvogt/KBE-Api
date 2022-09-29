@@ -18,11 +18,13 @@ public class ShoppingCart {
   @Transient
   public static final String SEQUENCE_NAME = "cart";
 
+
   // ID hinzufügen, um shopping cart für jeden User individuell zu gestalten
   private @Id String cartID;
   private String userID;
   private List<CartItem> productsInCart = new ArrayList<CartItem>();
   private float totalAmount;
+
 
   ShoppingCart() {
   }
