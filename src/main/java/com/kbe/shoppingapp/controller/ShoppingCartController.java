@@ -44,8 +44,8 @@ class ShoppingCartController {
   }
 
   @PatchMapping("/cart/{id}")
-  public ShoppingCart updateShoppingCart(@PathVariable("id") String id, @RequestBody ShoppingCart shoppingCart) {
-    return this.shoppingCartService.update(shoppingCart, id);
+  public ShoppingCart updateShoppingCart(@PathVariable("id") String id, @RequestBody ShoppingCart shoppingCart, @RequestBody Product p) {
+    return this.shoppingCartService.update(shoppingCart, id, p);
   }
 
   @DeleteMapping("/cart/{id}")
