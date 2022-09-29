@@ -25,7 +25,7 @@ public class ShoppingCartService implements IShoppingCartService {
 	{
 		return this.shoppingCartRepository.save(ShoppingCart);
 	}
-
+	
 	// Read operation
 	@Override 
 	public List<ShoppingCart> readAll()
@@ -42,11 +42,9 @@ public class ShoppingCartService implements IShoppingCartService {
 
 	// Update operation
 	@Override
-	public ShoppingCart update(ShoppingCart shoppingCart, String userMail) {
+	public ShoppingCart update(ShoppingCart shoppingCart, String userMail, Product p) {
 		ShoppingCart _shoppingCart = this.shoppingCartRepository.findById(userMail).get();
-
-		
-				
+		_shoppingCart.addToCart(p);
 		return this.shoppingCartRepository.save(_shoppingCart);
 	}
 

@@ -18,7 +18,7 @@ public interface IShoppingCartService {
     ShoppingCart readById(String userMail);
   
     // Update operation
-    ShoppingCart update(ShoppingCart shoppingCart, String productId);
+    ShoppingCart update(ShoppingCart shoppingCart, String userMail, Product p);
   
     // Delete operation
     void deleteById(String productId);
