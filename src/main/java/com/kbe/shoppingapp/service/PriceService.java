@@ -23,10 +23,10 @@ public class PriceService implements IPriceService {
 		this.priceRepository = priceRepository;
 		this.productRepository = productRepository;
 		this.currencyRepository = currencyRepository;
-		this.priceRepository.deleteAll();
+		//this.priceRepository.deleteAll();
 	}
 
-	private Float calculateTotalUsdPrice(String productId) {
+	public Float calculateTotalUsdPrice(String productId) {
 		try {
 			Product product = this.productRepository.findById(productId).get();
 			Float total = 0.f;

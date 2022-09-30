@@ -17,9 +17,9 @@ public class Currency {
   private String name;
   private Float usdConversionRate;
   
-  Currency() {}
+  public Currency() {}
 
-  Currency(String name, Float usdConversionRate) {
+  public Currency(String name, Float usdConversionRate) {
 
     this.name = name;
     this.usdConversionRate = usdConversionRate;

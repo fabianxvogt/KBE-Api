@@ -15,7 +15,7 @@ public class ProductService implements IProductService {
 
 	public ProductService(ProductRepository productRepository) {
 		this.productRepository = productRepository;
-		this.productRepository.deleteAll();
+		//this.productRepository.deleteAll();
 	}
 
 	// Save operation

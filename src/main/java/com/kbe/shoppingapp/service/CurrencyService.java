@@ -15,7 +15,7 @@ public class CurrencyService implements ICurrencyService {
 
 	public CurrencyService(CurrencyRepository currencyRepository) {
 		this.currencyRepository = currencyRepository;
-		this.currencyRepository.deleteAll();
+		//this.currencyRepository.deleteAll();
 	}
 
 	// Save operation
