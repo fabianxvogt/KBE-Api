@@ -22,9 +22,9 @@ public class Product {
   private String description;
   private String categoryId;
   
-  Product() {}
+  public Product() {}
 
-  Product(String name, String description, Float price, String imageURL, String categoryId, List<String> componentIds) {
+  public Product(String name, String description, Float price, String imageURL, String categoryId, List<String> componentIds) {
 
     this.name = name;
     this.description = description;
@@ -90,6 +90,7 @@ public class Product {
       "id=" + this.id + ", " + 
       "name='" + this.name + "\'," +
       "description='" + this.description + "\'," +
+      "price='" + this.getPrice() + "\'," +
       "imageURL='" + this.imageURL + "\'," +
     "}";
   }
